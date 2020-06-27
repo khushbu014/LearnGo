@@ -1,10 +1,22 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
+
+// compisation relationaship in Go
+// it is some what used as inheritance
+
+//BookStore ...
+type BookStore struct {
+	name        string
+	publication string
+}
 
 //Books ...
 type Books struct {
-	name    string
+	BookStore
+	name    string `required max: "100"`
 	price   float32
 	reviews []string
 }
@@ -47,6 +59,7 @@ func createMap() {
 }
 
 func createStruct() {
+
 	aBook := Books{
 		name:  "To kill a mocking bird",
 		price: 400.10,
@@ -57,5 +70,18 @@ func createStruct() {
 		},
 	}
 
+	aBook.BookStore = BookStore{
+		"abc store", "abc",
+	}
+
 	fmt.Println(aBook)
+
+	// createing an anonymous sruct
+	// can be used for short live value
+	anonymousBook := struct{ name string }{name: "1984"}
+	fmt.Println(anonymousBook)
+
+	// every time a copy is created if you are manipulating and assgining a struct to another
+	//ie. a they point to different memory location (like in array)
+
 }
