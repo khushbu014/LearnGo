@@ -14,7 +14,7 @@ var (
 	pages  int    = 480
 )
 
-//I ... upper case 1st letter , will be xported globaly
+//I ... upper case 1st letter , will be exported globaly
 var I int = 1
 
 func main() {
